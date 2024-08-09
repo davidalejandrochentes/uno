@@ -1,0 +1,36 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block 'title'%} Empleos {% endblock %}
+
+{% block 'content' %}
+
+<div class="shadow p-3 bg-body-tertiary rounded pe-5 ps-5">
+    <form class=" form-inline  mw-100 navbar-search" role="search" action="" method='GET'>
+        <div class="input-group d-flex">
+            <input class="form-control bg-light border-2 border-success small" id="search-input" name="search" type="search" placeholder="Que buscas" aria-label="Search">
+            <div class="input-group-append">
+                <button class="btn bg-success text-light rounded-0 rounded-end border-2 border-success" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+        </div>
+        <!--<div class="form-check mt-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Solo con domicilio incluido
+            </label>
+        </div>-->         
+    </form>
+    </div>
+
+<div class="container p-4">
+    
+    {% for empleo in empleos %}
+        <a class="text-decoration-none text-dark" href="{% url "trabajador" id=empleo.id %}">
+            <div class="shadow p-3 mb-3 mt-3 bg-body-tertiary rounded d-flex justify-content-between"><span>{{ empleo.nombre }}</span> <span>{{ empleo.trabajador_set.all|length }}</span></div>
+        </a>
+        {% endfor %}
+
+</div>
+{% endblock %}

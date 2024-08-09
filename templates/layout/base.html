@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es-es" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="robots" content="none, noarchive">
+    <meta name="description" content="Compañía de Diseño Web">
+    <meta name="keywords" content="Diseño web, pagina web, crear sitio web, una web">
+    <meta name="copyright" content="T3D Design Company">
+    <meta name="author" content="David A. Chentes">
+    <meta name="audience" content="all">
+    <meta name="description" content="Empresa de desarrollo y tecnologías web, una buena opción para todo el interesado en su presencia en línea">
+    <meta name="robots" content="index, all, follow">
+    <meta name="category" content="Diseño Web">  
+    <meta name="telephone" content="+1 224 288 1535">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block 'refresh' %}{% endblock %}
+    <title>{% block 'title' %}{% endblock %}</title>
+    <link rel="icon" href="" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    {% block 'styles' %}{% endblock %}
+</head>
+<body class="bg-light">
+
+    {% include "layout/partials/menu.html" %}  
+    
+    {% block 'content' %}{% endblock %}
+    
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            
+            // Aquí puedes hacer lo que desees con la latitud y longitud,
+            // por ejemplo, mostrarlas en un elemento HTML específico.
+            document.getElementById("latitud").innerText = "Latitud: " + latitude;
+            document.getElementById("longitud").innerText = "Longitud: " + longitude;
+        }
+    
+        // Llama a la función getLocation() cuando se carga la página para obtener la ubicación del usuario.
+        window.onload = getLocation;
+    </script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+</body>
+</html>

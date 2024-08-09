@@ -1,0 +1,37 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block 'title'%} Trabajadores {% endblock %}
+
+{% block 'content' %}
+
+<div class="container p-4">  
+
+    <p id="latitud"></p>
+    <p id="longitud"></p>
+
+    {% for trabajador in trabajadores %}    
+            <div class="row text-center text-md-start m-3 bg-body-tertiary rounded shadow p-3" style="">
+                <div class="col-12 col-md-4 order-2 order-md-1">
+                    <h5 class="card-title">{{ trabajador.nombre }}</h5>
+                    <p class="card-text m-1"><b>Empresa:</b> {{ trabajador.empresa }}</p>
+                    <p class="card-text m-1"><b>Teléfono #1:</b> {{ trabajador.teléfono1 }}</p>
+                    <p class="card-text m-1"><b>Teléfono #2:</b> {{ trabajador.teléfono2 }}</p>
+                    <p class="card-text m-1"><b>Email:</b> {{ trabajador.email }}</p>
+                    <p class="card-text m-1"><b>Fecha de Alta:</b> {{ trabajador.fecha_alta  }}</p>
+                </div>
+                <div class="col-12 col-md-4 order-3 order-md-2">
+                    <p class="card-title m-1"><b>Descripción:</b> {{ trabajador.descripción }}</p>
+                    <p class="card-title m-1 text-success border-bottom border-top border-3 border-success"><b class="">Distancia de usted:</b> 100m</p>
+                    <p class="card-text m-1"><b>Calificación:</b> {{ trabajador.calificación }}<i class="bi bi-star-fill text-warning"></i></p>
+                    <button type="button" class="btn btn-success btn-sm">Comentarios de {{ trabajador.nombre }} <i class="bi bi-chat-left-text"></i></button>
+                </div>
+                <div class="col-12 col-md-4 d-flex justify-content-center align-item-center order-1 order-md-3">
+                    <img src="{{ trabajador.imagen.url }}" class="img-thumbnail image-employ rounded-circle" alt="Imagen">
+                </div>
+            </div>
+    {% endfor %}
+    
+</div>
+
+{% endblock %}
