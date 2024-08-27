@@ -27,10 +27,10 @@
 <div class="container p-4">
     
     {% for empleo in empleos %}
-        <a class="text-decoration-none text-dark" href="{% url "trabajador" id=empleo.id %}">
+        <a class="text-decoration-none text-dark carta" href="{% url "trabajador" id=empleo.id %}">
             <div class="shadow p-3 mb-3 mt-3 bg-body-tertiary rounded d-flex justify-content-between"><span>{{ empleo.nombre }}</span> <span>{{ empleo.trabajador_set.all|length }}</span></div>
         </a>
-        {% endfor %}
+    {% endfor %}
 
 </div>
 {% endblock %}

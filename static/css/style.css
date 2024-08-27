@@ -9,8 +9,8 @@
 }
 
 .image-employ{
-    max-height: 180px;
-    max-width: 180px;
-    min-height: 180px;
-    min-width: 180px;
+    max-height: 180px !important;
+    max-width: 180px !important;
+    min-height: 180px !important;
+    min-width: 180px !important;
 }
